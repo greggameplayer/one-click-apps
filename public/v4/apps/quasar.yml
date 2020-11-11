@@ -16,11 +16,6 @@ services:
         restart: always
         ports:
             - $$cap_APP_PORT:$$cap_APP_PORT
-        command:
-            - 'apt-get install -y git'
-            - 'npm install -g @quasar/cli'
-            - 'git clone $$cap_APP_GIT_REPO ./'
-            - 'quasar build -m spa'
         volumes:
             - $$cap_appname-data:/data
         environment:
