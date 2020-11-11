@@ -3,54 +3,30 @@ services:
     $$cap_appname:
         caproverExtra:
             dockerfileLines: [
-                    \
-                    "FROM  node:alpine",
-                    \
-                    "USER root",
-                    \
-                    "RUN apk add --no-cache \\",
-                    \
-                    "    g++ \\",
-                    \
-                    "    gcc \\",
-                    \
-                    "    git \\",
-                    \
-                    "    libxml2 \\",
-                    \
-                    "    libxml2-dev \\",
-                    \
-                    "    libxslt-dev \\",
-                    \
-                    "    linux-headers \\",
-                    \
-                    "\tmake",
-                    \
-                    "RUN apk add --no-cache python2 && \\",
-                    \
-                    "    python -m ensurepip && \\",
-                    \
-                    "    rm -r /usr/lib/python*/ensurepip && \\",
-                    \
-                    "    pip install --upgrade pip setuptools && \\",
-                    \
-                    "    rm -r /root/.cache",
-                    \
-                    "RUN npm install -g @quasar/cli && npm install -g @vue/cli && npm install -g @vue/cli-init",
-                    \
-                    "RUN mkdir /home/node/app",
-                    \
-                    "WORKDIR /home/node/app",
-                    \
-                    "RUN git clone https://github.com/greggameplayer/PortfolioQuasar.git ./ && npm i",
-                    \
-                    "RUN quasar build -m spa",
-                    \
-                    "WORKDIR /home/node/app/dist/spa",
-                    \
-                    "EXPOSE 80",
-                    \
-                    "CMD quasar serve -p 80" \,
+                    "FROM  node:alpine", \
+                    "USER root", \
+                    "RUN apk add --no-cache \\", \
+                    "    g++ \\", \
+                    "    gcc \\", \
+                    "    git \\", \
+                    "    libxml2 \\", \
+                    "    libxml2-dev \\", \
+                    "    libxslt-dev \\", \
+                    "    linux-headers \\", \
+                    "make", \
+                    "RUN apk add --no-cache python2 && \\", \
+                    "    python -m ensurepip && \\", \
+                    "    rm -r /usr/lib/python*/ensurepip && \\", \
+                    "    pip install --upgrade pip setuptools && \\", \
+                    "    rm -r /root/.cache", \
+                    "RUN npm install -g @quasar/cli && npm install -g @vue/cli && npm install -g @vue/cli-init", \
+                    "RUN mkdir /home/node/app", \
+                    "WORKDIR /home/node/app", \
+                    "RUN git clone https://github.com/greggameplayer/PortfolioQuasar.git ./ && npm i", \
+                    "RUN quasar build -m spa", \
+                    "WORKDIR /home/node/app/dist/spa", \
+                    "EXPOSE 80", \
+                    "CMD quasar serve -p 80", \
                 ]
         restart: always
         environment:
